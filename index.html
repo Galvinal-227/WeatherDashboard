@@ -10,11 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -23,14 +18,12 @@
         }
 
         :root {
-            /* Warna Gradient Premium */
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             --gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             
-            /* Warna Modern */
             --primary: #667eea;
             --secondary: #764ba2;
             --accent: #f5576c;
@@ -38,7 +31,6 @@
             --warning: #fa709a;
             --info: #4facfe;
             
-            /* Theme Variables */
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
             --text-primary: #f8fafc;
@@ -135,69 +127,10 @@
             box-shadow: 0 8px 32px var(--shadow-color);
         }
 
-        /* Navigation */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-effect);
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-brand i {
-            font-size: 1.8rem;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-menu a:hover {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .nav-menu a.active {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
         /* Location Detector */
         .location-detector {
             position: fixed;
-            top: 90px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
             padding: 16px 32px;
@@ -219,28 +152,13 @@
         /* Main Container */
         .weather-container {
             max-width: 1440px;
-            margin: 80px auto 30px;
+            margin: 0 auto;
             padding: 30px;
             position: relative;
             z-index: 1;
         }
 
-        /* Page Container */
-        .page-container {
-            display: none;
-        }
-
-        .page-container.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Dashboard Page */
+        /* Header */
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -347,9 +265,6 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .search-btn::after {
@@ -402,10 +317,6 @@
             font-weight: 500;
             text-align: center;
             backdrop-filter: var(--glass-effect);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .location-btn:hover {
@@ -483,9 +394,6 @@
             font-size: 6rem;
             position: relative;
             z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .temp-display {
@@ -540,9 +448,6 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
         .detail-card:hover {
@@ -556,14 +461,9 @@
         .detail-card:nth-child(4) { background: linear-gradient(135deg, rgba(67, 233, 123, 0.1) 0%, rgba(56, 249, 215, 0.1) 100%); }
 
         .detail-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
         }
 
         .detail-info h3 {
@@ -641,8 +541,6 @@
         .forecast-icon {
             font-size: 3.5rem;
             margin: 15px 0;
-            display: flex;
-            justify-content: center;
         }
 
         .forecast-temp {
@@ -746,8 +644,6 @@
         .hourly-icon {
             font-size: 2.5rem;
             margin: 15px 0;
-            display: flex;
-            justify-content: center;
         }
 
         .hourly-temp {
@@ -763,11 +659,156 @@
             text-transform: capitalize;
         }
 
-        /* Calendar Page */
-        .calendar-section {
-            padding: 40px;
-            border-radius: 32px;
-            margin-bottom: 50px;
+        /* Settings Panel */
+        .settings-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 2000;
+            transition: transform 0.3s ease;
+        }
+
+        .settings-panel.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gradient-primary);
+        }
+
+        .settings-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .close-settings {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-settings:hover {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .settings-content {
+            padding: 20px 0;
+        }
+
+        .settings-group {
+            margin-bottom: 30px;
+        }
+
+        .settings-group h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .setting-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Calendar Modal */
+        .calendar-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 2000;
+            transition: transform 0.3s ease;
+        }
+
+        .calendar-modal.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gradient-primary);
+        }
+
+        .calendar-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .close-calendar {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-calendar:hover {
+            background: var(--gradient-primary);
+            color: white;
         }
 
         .calendar-grid {
@@ -856,219 +897,97 @@
         }
 
         .calendar-main {
-            height: 600px;
-        }
-
-        /* FullCalendar Customization */
-        .fc {
-            height: 100%;
-        }
-
-        .fc-theme-standard .fc-scrollgrid {
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .fc-theme-standard td, .fc-theme-standard th {
-            border-color: var(--card-border);
-        }
-
-        .fc .fc-toolbar-title {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .fc .fc-button {
-            background: var(--gradient-primary);
-            border: none;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
-
-        .fc .fc-button:hover {
-            background: var(--gradient-secondary);
-        }
-
-        .fc .fc-button-primary:disabled {
-            background: var(--text-secondary);
-        }
-
-        .fc .fc-daygrid-day.fc-day-today {
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .fc .fc-col-header-cell-cushion {
-            color: var(--text-primary);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .fc .fc-daygrid-day-number {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .fc-h-event {
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 6px;
-        }
-
-        .fc-event-title {
-            font-weight: 500;
-        }
-
-        /* Maps Page */
-        .maps-section {
-            padding: 40px;
-            border-radius: 32px;
-            margin-bottom: 50px;
-        }
-
-        .maps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 1024px) {
-            .maps-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .map-container {
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--card-border);
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        .weather-locations {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .location-item {
-            padding: 20px;
-            border-radius: 16px;
+            height: 400px;
             background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            border-radius: 20px;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Calendar Styles */
+        .simple-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .location-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px var(--shadow-color);
+        .calendar-day:hover {
             background: var(--gradient-primary);
-        }
-
-        .location-item:hover * {
             color: white;
         }
 
-        .location-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+        .calendar-day.today {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 700;
         }
 
-        .location-info h4 {
-            font-size: 1.1rem;
+        .calendar-day-header {
+            padding: 10px;
+            text-align: center;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 5px;
         }
 
-        .location-info p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        /* Settings Page */
-        .settings-section {
-            padding: 40px;
-            border-radius: 32px;
-            margin-bottom: 50px;
-        }
-
-        .settings-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .settings-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .settings-card {
-            padding: 30px;
-            border-radius: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-        }
-
-        .settings-group {
-            margin-bottom: 30px;
-        }
-
-        .settings-group h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .setting-item {
+        .calendar-month {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 20px;
         }
 
-        .setting-item:last-child {
-            border-bottom: none;
-        }
-
-        .setting-info h4 {
-            font-size: 1rem;
-            font-weight: 600;
+        .calendar-nav {
+            background: none;
+            border: none;
             color: var(--text-primary);
-            margin-bottom: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        .setting-info p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .calendar-nav:hover {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .calendar-current {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Toggle Switch */
@@ -1145,6 +1064,45 @@
             pointer-events: none;
         }
 
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action-btn.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
         /* Loading */
         .loading {
             position: fixed;
@@ -1157,6 +1115,10 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+        }
+
+        .loading.active {
+            display: flex;
         }
 
         .loading-content {
@@ -1220,6 +1182,64 @@
             box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
         }
 
+        /* Settings Button */
+        .settings-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        .settings-main-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settings-main-btn:hover {
+            transform: rotate(180deg) scale(1.1);
+            box-shadow: 0 12px 30px rgba(240, 147, 251, 0.4);
+        }
+
+        /* Calendar Button */
+        .calendar-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 1000;
+        }
+
+        .calendar-main-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-main-btn:hover {
+            transform: rotate(180deg) scale(1.1);
+            box-shadow: 0 12px 30px rgba(79, 172, 254, 0.4);
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -1272,20 +1292,11 @@
                 width: 150px;
                 height: 150px;
             }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
         }
 
         @media (max-width: 768px) {
             .weather-container {
                 padding: 20px;
-                margin-top: 70px;
             }
             
             .header {
@@ -1304,8 +1315,7 @@
                 padding: 30px;
             }
             
-            .forecast-section, .charts-section, .hourly-section,
-            .calendar-section, .maps-section, .settings-section {
+            .forecast-section, .charts-section, .hourly-section {
                 padding: 30px;
             }
             
@@ -1314,7 +1324,11 @@
             }
             
             .calendar-main {
-                height: 400px;
+                height: 300px;
+            }
+            
+            .calendar-grid {
+                gap: 20px;
             }
         }
 
@@ -1356,53 +1370,14 @@
             .chart-container {
                 height: 280px;
             }
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-effect);
-            border-bottom: 1px solid var(--card-border);
-            padding: 20px;
-            display: none;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 999;
-        }
-
-        .mobile-menu.show {
-            display: flex;
-        }
-
-        .mobile-menu a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 15px 20px;
-            border-radius: 12px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover,
-        .mobile-menu a.active {
-            background: var(--gradient-primary);
-            color: white;
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                width: 100%;
+            }
         }
 
         /* Custom Scrollbar */
@@ -1421,27 +1396,6 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--gradient-secondary);
-        }
-
-        /* Lucide Icon Styling */
-        .lucide-icon {
-            width: 24px;
-            height: 24px;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-        }
-
-        .icon-large {
-            width: 64px;
-            height: 64px;
-        }
-
-        .icon-xl {
-            width: 96px;
-            height: 96px;
         }
     </style>
 </head>
@@ -1467,48 +1421,195 @@
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="main-nav glass">
-        <div class="nav-brand">
-            <i class="fas fa-cloud-sun"></i>
-            <span>Weather Pro</span>
+    <!-- Settings Panel -->
+    <div class="settings-panel glass" id="settingsPanel">
+        <div class="settings-header">
+            <h2><i class="fas fa-cog"></i> Settings</h2>
+            <button class="close-settings" id="closeSettings">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        
-        <ul class="nav-menu">
-            <li><a href="#dashboard" class="nav-link active" data-page="dashboard">
-                <i class="fas fa-home"></i> Dashboard
-            </a></li>
-            <li><a href="#calendar" class="nav-link" data-page="calendar">
-                <i class="fas fa-calendar-alt"></i> Calendar
-            </a></li>
-            <li><a href="#maps" class="nav-link" data-page="maps">
-                <i class="fas fa-map"></i> Maps
-            </a></li>
-            <li><a href="#settings" class="nav-link" data-page="settings">
-                <i class="fas fa-cog"></i> Settings
-            </a></li>
-        </ul>
-        
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu glass" id="mobileMenu">
-        <a href="#dashboard" class="nav-link active" data-page="dashboard">
-            <i class="fas fa-home"></i> Dashboard
-        </a>
-        <a href="#calendar" class="nav-link" data-page="calendar">
-            <i class="fas fa-calendar-alt"></i> Calendar
-        </a>
-        <a href="#maps" class="nav-link" data-page="maps">
-            <i class="fas fa-map"></i> Maps
-        </a>
-        <a href="#settings" class="nav-link" data-page="settings">
-            <i class="fas fa-cog"></i> Settings
-        </a>
+        <div class="settings-content">
+            <div class="settings-group">
+                <h3><i class="fas fa-sliders-h"></i> Display Settings</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Theme Mode</h4>
+                        <p>Switch between light and dark themes</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="themeSwitch">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Temperature Unit</h4>
+                        <p>Choose between Celsius and Fahrenheit</p>
+                    </div>
+                    <div class="select-dropdown">
+                        <select id="tempUnit">
+                            <option value="metric">Celsius (°C)</option>
+                            <option value="imperial">Fahrenheit (°F)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Wind Speed Unit</h4>
+                        <p>Choose wind speed measurement unit</p>
+                    </div>
+                    <div class="select-dropdown">
+                        <select id="windUnit">
+                            <option value="kmh">km/h</option>
+                            <option value="mph">mph</option>
+                            <option value="mps">m/s</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h3><i class="fas fa-bell"></i> Notifications</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Weather Alerts</h4>
+                        <p>Get notifications for severe weather</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="weatherAlerts" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Daily Forecast</h4>
+                        <p>Receive daily weather updates</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="dailyForecast" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Rain Notifications</h4>
+                        <p>Get notified when rain is expected</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="rainNotifications">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h3><i class="fas fa-map-marked-alt"></i> Location Settings</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Auto Location</h4>
+                        <p>Automatically detect your location</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoLocation" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>Save Locations</h4>
+                        <p>Remember your favorite locations</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="saveLocations" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h3><i class="fas fa-database"></i> Data Management</h3>
+                <div class="action-buttons">
+                    <button class="action-btn secondary" id="clearCache">
+                        <i class="fas fa-trash"></i> Clear Cache
+                    </button>
+                    <button class="action-btn secondary" id="resetSettings">
+                        <i class="fas fa-redo"></i> Reset Settings
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-modal glass" id="calendarModal">
+        <div class="calendar-header">
+            <h2><i class="fas fa-calendar-alt"></i> Weather Calendar</h2>
+            <button class="close-calendar" id="closeCalendar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="calendar-grid">
+            <div class="calendar-sidebar">
+                <div class="calendar-card">
+                    <h3 class="calendar-title">
+                        <i class="fas fa-calendar-day"></i> Today
+                    </h3>
+                    <div class="today-events" id="todayEvents">
+                        <div class="event-item">
+                            <div class="event-time">09:00 AM</div>
+                            <div class="event-title">Morning Briefing</div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-time">02:00 PM</div>
+                            <div class="event-title">Team Meeting</div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-time">04:30 PM</div>
+                            <div class="event-title">Weather Review</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar-card">
+                    <h3 class="calendar-title">
+                        <i class="fas fa-chart-bar"></i> Weather Stats
+                    </h3>
+                    <div class="weather-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="avgTemp">--°C</div>
+                            <div class="stat-label">Avg Temperature</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="rainChance">--%</div>
+                            <div class="stat-label">Rain Chance</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="sunHours">--h</div>
+                            <div class="stat-label">Sun Hours</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="uvIndex">--</div>
+                            <div class="stat-label">UV Index</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar-card">
+                    <h3 class="calendar-title">
+                        <i class="fas fa-cloud-sun-rain"></i> Upcoming Events
+                    </h3>
+                    <div class="today-events" id="weatherEvents">
+                        <!-- Weather events will be inserted here -->
+                    </div>
+                </div>
+            </div>
+            <div class="calendar-main" id="calendarContainer">
+                <!-- Calendar will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <!-- Main Container -->
     <div class="weather-container">
@@ -1519,433 +1620,157 @@
             </button>
         </div>
 
-        <!-- Dashboard Page -->
-        <div id="dashboardPage" class="page-container active">
-            <!-- Header -->
-            <div class="header glass">
-                <h1>Weather Dashboard Pro</h1>
-                <p>Real-time weather forecasts with beautiful visualizations</p>
-            </div>
+        <!-- Settings Button -->
+        <div class="settings-btn">
+            <button class="settings-main-btn" id="openSettings">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
 
-            <!-- Search Section -->
-            <div class="search-section">
-                <div class="search-box">
-                    <div class="search-input-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="search-input" id="searchInput" 
-                               placeholder="Enter city name...">
-                    </div>
-                    <button class="search-btn" id="searchBtn">
-                        <i class="fas fa-search"></i> Search
-                    </button>
-                </div>
-                <div class="location-buttons">
-                    <button class="location-btn" id="currentLocationBtn">
-                        <i class="fas fa-location-crosshairs"></i> Current Location
-                    </button>
-                    <button class="location-btn" data-city="Jakarta">
-                        <i class="fas fa-city"></i> Jakarta
-                    </button>
-                    <button class="location-btn" data-city="Surabaya">
-                        <i class="fas fa-city"></i> Surabaya
-                    </button>
-                    <button class="location-btn" data-city="Bandung">
-                        <i class="fas fa-city"></i> Bandung
-                    </button>
-                    <button class="location-btn" data-city="Bali">
-                        <i class="fas fa-umbrella-beach"></i> Bali
-                    </button>
-                    <button class="location-btn" data-city="Yogyakarta">
-                        <i class="fas fa-mountain"></i> Yogyakarta
-                    </button>
-                </div>
-            </div>
+        <!-- Calendar Button -->
+        <div class="calendar-btn">
+            <button class="calendar-main-btn" id="openCalendar">
+                <i class="fas fa-calendar-alt"></i>
+            </button>
+        </div>
 
-            <!-- Current Weather -->
-            <div class="current-weather glass">
-                <div class="weather-content">
-                    <div class="weather-main">
-                        <div class="weather-icon-container">
-                            <div class="weather-icon-bg"></div>
-                            <div class="weather-icon" id="weatherIcon">
-                                <!-- Lucide icon will be inserted here -->
-                            </div>
-                        </div>
-                        <div>
-                            <div class="temp-display" id="currentTemp">--<span class="temp-unit">°C</span></div>
-                            <div class="location-name" id="locationName">Loading...</div>
-                            <div class="weather-desc" id="weatherDesc">--</div>
-                            <div class="date-time">
-                                <i class="far fa-calendar"></i>
-                                <span id="dateTime">--</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="weather-details">
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <!-- Lucide icon for humidity -->
-                            </div>
-                            <div class="detail-info">
-                                <h3>Humidity</h3>
-                                <p id="humidity">--%</p>
-                            </div>
-                        </div>
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <!-- Lucide icon for wind -->
-                            </div>
-                            <div class="detail-info">
-                                <h3>Wind Speed</h3>
-                                <p id="windSpeed">-- km/h</p>
-                            </div>
-                        </div>
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <!-- Lucide icon for visibility -->
-                            </div>
-                            <div class="detail-info">
-                                <h3>Visibility</h3>
-                                <p id="visibility">-- km</p>
-                            </div>
-                        </div>
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <!-- Lucide icon for pressure -->
-                            </div>
-                            <div class="detail-info">
-                                <h3>Pressure</h3>
-                                <p id="pressure">-- hPa</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Header -->
+        <div class="header glass">
+            <h1>Weather Dashboard Pro</h1>
+            <p>Real-time weather forecasts with beautiful visualizations</p>
+        </div>
 
-            <!-- 7-Day Forecast -->
-            <div class="forecast-section glass">
-                <h2 class="section-title">
-                    <i class="fas fa-calendar-alt"></i> 7-Day Forecast
-                </h2>
-                <div class="forecast-grid" id="forecastGrid">
-                    <!-- Forecast cards will be inserted here -->
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <div class="search-input-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" 
+                           placeholder="Enter city name...">
                 </div>
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
             </div>
-
-            <!-- Charts Section -->
-            <div class="charts-section glass">
-                <h2 class="section-title">
-                    <i class="fas fa-chart-line"></i> Weather Analytics
-                </h2>
-                <div class="charts-grid">
-                    <div class="chart-container">
-                        <canvas id="tempChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="humidityChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hourly Forecast -->
-            <div class="hourly-section glass">
-                <h2 class="section-title">
-                    <i class="fas fa-clock"></i> 24-Hour Forecast
-                </h2>
-                <div class="hourly-scroll" id="hourlyScroll">
-                    <!-- Hourly items will be inserted here -->
-                </div>
+            <div class="location-buttons">
+                <button class="location-btn" id="currentLocationBtn">
+                    <i class="fas fa-location-crosshairs"></i> Current Location
+                </button>
+                <button class="location-btn" data-city="Jakarta">Jakarta</button>
+                <button class="location-btn" data-city="Surabaya">Surabaya</button>
+                <button class="location-btn" data-city="Bandung">Bandung</button>
+                <button class="location-btn" data-city="Bali">Bali</button>
+                <button class="location-btn" data-city="Yogyakarta">Yogyakarta</button>
             </div>
         </div>
 
-        <!-- Calendar Page -->
-        <div id="calendarPage" class="page-container">
-            <div class="calendar-section glass">
-                <h2 class="section-title">
-                    <i class="fas fa-calendar-alt"></i> Weather Calendar
-                </h2>
-                <div class="calendar-grid">
-                    <div class="calendar-sidebar">
-                        <div class="calendar-card">
-                            <h3 class="calendar-title">
-                                <i class="fas fa-calendar-day"></i> Today
-                            </h3>
-                            <div class="today-events" id="todayEvents">
-                                <!-- Today's events will be inserted here -->
-                            </div>
-                        </div>
-                        <div class="calendar-card">
-                            <h3 class="calendar-title">
-                                <i class="fas fa-chart-bar"></i> Weather Stats
-                            </h3>
-                            <div class="weather-stats">
-                                <div class="stat-item">
-                                    <div class="stat-value" id="avgTemp">--°C</div>
-                                    <div class="stat-label">Avg Temperature</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value" id="rainChance">--%</div>
-                                    <div class="stat-label">Rain Chance</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value" id="sunHours">--h</div>
-                                    <div class="stat-label">Sun Hours</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value" id="uvIndex">--</div>
-                                    <div class="stat-label">UV Index</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calendar-card">
-                            <h3 class="calendar-title">
-                                <i class="fas fa-cloud-sun-rain"></i> Upcoming Events
-                            </h3>
-                            <div class="today-events" id="weatherEvents">
-                                <!-- Weather events will be inserted here -->
-                            </div>
+        <!-- Current Weather -->
+        <div class="current-weather glass">
+            <div class="weather-content">
+                <div class="weather-main">
+                    <div class="weather-icon-container">
+                        <div class="weather-icon-bg"></div>
+                        <div class="weather-icon" id="weatherIcon">⛅</div>
+                    </div>
+                    <div>
+                        <div class="temp-display" id="currentTemp">--<span class="temp-unit">°C</span></div>
+                        <div class="location-name" id="locationName">Loading...</div>
+                        <div class="weather-desc" id="weatherDesc">--</div>
+                        <div class="date-time">
+                            <i class="far fa-calendar"></i>
+                            <span id="dateTime">--</span>
                         </div>
                     </div>
-                    <div class="calendar-main">
-                        <div id="calendar"></div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <div class="detail-icon">💧</div>
+                        <div class="detail-info">
+                            <h3>Humidity</h3>
+                            <p id="humidity">--%</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">💨</div>
+                        <div class="detail-info">
+                            <h3>Wind Speed</h3>
+                            <p id="windSpeed">-- km/h</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">👁️</div>
+                        <div class="detail-info">
+                            <h3>Visibility</h3>
+                            <p id="visibility">-- km</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">📊</div>
+                        <div class="detail-info">
+                            <h3>Pressure</h3>
+                            <p id="pressure">-- hPa</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Maps Page -->
-        <div id="mapsPage" class="page-container">
-            <div class="maps-section glass">
-                <h2 class="section-title">
-                    <i class="fas fa-map"></i> Weather Maps
-                </h2>
-                <div class="maps-grid">
-                    <div class="map-container">
-                        <div id="map"></div>
-                    </div>
-                    <div class="weather-locations" id="weatherLocations">
-                        <!-- Location items will be inserted here -->
-                    </div>
+        <!-- 7-Day Forecast -->
+        <div class="forecast-section glass">
+            <h2 class="section-title">
+                <i class="fas fa-calendar-alt"></i> 7-Day Forecast
+            </h2>
+            <div class="forecast-grid" id="forecastGrid">
+                <!-- Forecast cards will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section glass">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line"></i> Weather Analytics
+            </h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <canvas id="tempChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="humidityChart"></canvas>
                 </div>
             </div>
         </div>
 
-        <!-- Settings Page -->
-        <div id="settingsPage" class="page-container">
-            <div class="settings-section glass">
-                <h2 class="section-title">
-                    <i class="fas fa-cog"></i> Settings
-                </h2>
-                <div class="settings-grid">
-                    <div class="settings-card">
-                        <div class="settings-group">
-                            <h3><i class="fas fa-sliders-h"></i> Display Settings</h3>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Theme Mode</h4>
-                                    <p>Switch between light and dark themes</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="themeSwitch">
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Temperature Unit</h4>
-                                    <p>Choose between Celsius and Fahrenheit</p>
-                                </div>
-                                <div class="select-dropdown">
-                                    <select id="tempUnit">
-                                        <option value="metric">Celsius (°C)</option>
-                                        <option value="imperial">Fahrenheit (°F)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Wind Speed Unit</h4>
-                                    <p>Choose wind speed measurement unit</p>
-                                </div>
-                                <div class="select-dropdown">
-                                    <select id="windUnit">
-                                        <option value="kmh">km/h</option>
-                                        <option value="mph">mph</option>
-                                        <option value="mps">m/s</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="settings-group">
-                            <h3><i class="fas fa-bell"></i> Notifications</h3>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Weather Alerts</h4>
-                                    <p>Get notifications for severe weather</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="weatherAlerts" checked>
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Daily Forecast</h4>
-                                    <p>Receive daily weather updates</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="dailyForecast" checked>
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Rain Notifications</h4>
-                                    <p>Get notified when rain is expected</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="rainNotifications">
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="settings-card">
-                        <div class="settings-group">
-                            <h3><i class="fas fa-map-marked-alt"></i> Location Settings</h3>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Auto Location</h4>
-                                    <p>Automatically detect your location</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="autoLocation" checked>
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Location Accuracy</h4>
-                                    <p>High accuracy uses more battery</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="highAccuracy">
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Save Locations</h4>
-                                    <p>Remember your favorite locations</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="saveLocations" checked>
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="settings-group">
-                            <h3><i class="fas fa-chart-line"></i> Data & Analytics</h3>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Auto Refresh</h4>
-                                    <p>Refresh weather data automatically</p>
-                                </div>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="autoRefresh" checked>
-                                    <span class="toggle-slider"></span>
-                                </label>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Refresh Interval</h4>
-                                    <p>How often to refresh weather data</p>
-                                </div>
-                                <div class="select-dropdown">
-                                    <select id="refreshInterval">
-                                        <option value="5">5 minutes</option>
-                                        <option value="15">15 minutes</option>
-                                        <option value="30">30 minutes</option>
-                                        <option value="60">1 hour</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Data Usage</h4>
-                                    <p>Detailed data uses more bandwidth</p>
-                                </div>
-                                <div class="select-dropdown">
-                                    <select id="dataUsage">
-                                        <option value="detailed">Detailed</option>
-                                        <option value="normal">Normal</option>
-                                        <option value="light">Light</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="settings-group">
-                            <h3><i class="fas fa-database"></i> Data Management</h3>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Clear Cache</h4>
-                                    <p>Remove stored weather data</p>
-                                </div>
-                                <button class="btn-secondary" id="clearCache">Clear</button>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Export Data</h4>
-                                    <p>Export your weather history</p>
-                                </div>
-                                <button class="btn-secondary" id="exportData">Export</button>
-                            </div>
-                            <div class="setting-item">
-                                <div class="setting-info">
-                                    <h4>Reset Settings</h4>
-                                    <p>Restore all default settings</p>
-                                </div>
-                                <button class="btn-secondary" id="resetSettings">Reset</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Hourly Forecast -->
+        <div class="hourly-section glass">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i> 24-Hour Forecast
+            </h2>
+            <div class="hourly-scroll" id="hourlyScroll">
+                <!-- Hourly items will be inserted here -->
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer glass">
-            <p>Weather Dashboard Pro v4.0 • Built with GSAP, Chart.js & OpenWeather API</p>
+            <p>Weather Dashboard Pro v3.0 • Built with GSAP & Chart.js</p>
             <p>Data provided by <a href="https://openweathermap.org" class="api-credit" target="_blank">OpenWeatherMap</a></p>
-            <p class="refresh-info">Weather data refreshes every 5 minutes • Your location is saved automatically</p>
+            <p class="refresh-info">Weather data refreshes automatically • Settings saved locally</p>
         </div>
     </div>
-
-    <!-- Leaflet JS for Maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
         class WeatherDashboard {
             constructor() {
-                // API Configuration
-                this.apiKey = '19f813f4d14c240a04799f09c68a7b11';
+                // API Configuration - Gunakan API key yang valid
+                this.apiKey = 'YOUR_API_KEY_HERE'; // Ganti dengan API key OpenWeather Anda
                 this.baseUrl = 'https://api.openweathermap.org/data/2.5';
                 this.geoUrl = 'https://api.openweathermap.org/geo/1.0';
                 
                 // Current state
-                this.currentCity = this.getStoredCity() || null;
-                this.currentCoords = this.getStoredCoords() || null;
-                this.currentUnit = this.getStoredUnit() || 'metric';
+                this.currentCity = this.getStoredCity() || 'Jakarta';
+                this.currentUnit = 'metric';
                 this.isLoading = false;
                 this.refreshInterval = null;
-                this.map = null;
-                this.calendar = null;
-                this.lucideIcons = null;
                 
                 // Chart instances
                 this.charts = {
@@ -1953,290 +1778,691 @@
                     humidity: null
                 };
                 
+                // Calendar state
+                this.currentDate = new Date();
+                
                 // Initialize
                 this.init();
-            }
-            
-            // ========== LOCALSTORAGE METHODS ==========
-            getStoredCity() {
-                return localStorage.getItem('weather_city');
-            }
-            
-            storeCity(city) {
-                localStorage.setItem('weather_city', city);
-            }
-            
-            getStoredCoords() {
-                const coords = localStorage.getItem('weather_coords');
-                return coords ? JSON.parse(coords) : null;
-            }
-            
-            storeCoords(lat, lon) {
-                localStorage.setItem('weather_coords', JSON.stringify({ lat, lon }));
-            }
-            
-            getStoredUnit() {
-                return localStorage.getItem('weather_unit') || 'metric';
-            }
-            
-            storeUnit(unit) {
-                localStorage.setItem('weather_unit', unit);
-            }
-            
-            getStoredLocationType() {
-                return localStorage.getItem('weather_location_type') || 'auto';
-            }
-            
-            storeLocationType(type) {
-                localStorage.setItem('weather_location_type', type);
-            }
-            
-            getStoredTheme() {
-                return localStorage.getItem('weather_theme') || 'dark';
-            }
-            
-            storeTheme(theme) {
-                localStorage.setItem('weather_theme', theme);
             }
             
             // ========== INITIALIZATION ==========
             async init() {
                 gsap.registerPlugin(ScrollTrigger, TextPlugin);
                 
-                // Initialize Lucide icons
-                this.initializeLucideIcons();
-                
                 // Setup UI elements
                 this.setupEventListeners();
-                this.setupNavigation();
-                this.setupCalendar();
                 this.setupSettings();
                 this.createParticleSystem();
                 this.initialAnimations();
                 
-                // Set initial theme
-                this.applyTheme();
-                
-                // Show location detector
-                this.showLocationDetector('Loading your last location...');
+                // Set initial theme from settings
+                this.applySavedTheme();
                 
                 // Load initial weather
                 await this.loadInitialWeather();
-                
-                // Start auto-refresh
-                this.startAutoRefresh();
             }
             
             async loadInitialWeather() {
-                const locationType = this.getStoredLocationType();
-                const storedCoords = this.getStoredCoords();
-                const storedCity = this.getStoredCity();
-                
-                if (locationType === 'gps' && storedCoords) {
-                    this.showLocationDetector('Loading your GPS location...');
-                    await this.getWeatherByCoords(storedCoords.lat, storedCoords.lon);
-                } else if (storedCity) {
-                    this.showLocationDetector(`Loading weather for ${storedCity}...`);
-                    await this.getWeather(storedCity);
-                } else {
-                    this.showLocationDetector('Detecting your location...');
-                    await this.getUserLocation();
-                }
-                
+                this.showLocationDetector(`Loading weather for ${this.currentCity}...`);
+                await this.getWeather(this.currentCity);
                 setTimeout(() => this.hideLocationDetector(), 2000);
             }
             
-            // ========== LUCIDE ICONS ==========
-            initializeLucideIcons() {
-                // Create SVG icons for different weather conditions
-                this.weatherIcons = {
-                    '01d': this.createSunIcon(),
-                    '01n': this.createMoonIcon(),
-                    '02d': this.createCloudSunIcon(),
-                    '02n': this.createCloudMoonIcon(),
-                    '03d': this.createCloudIcon(),
-                    '03n': this.createCloudIcon(),
-                    '04d': this.createCloudsIcon(),
-                    '04n': this.createCloudsIcon(),
-                    '09d': this.createCloudRainIcon(),
-                    '09n': this.createCloudRainIcon(),
-                    '10d': this.createSunRainIcon(),
-                    '10n': this.createMoonRainIcon(),
-                    '11d': this.createCloudLightningIcon(),
-                    '11n': this.createCloudLightningIcon(),
-                    '13d': this.createSnowIcon(),
-                    '13n': this.createSnowIcon(),
-                    '50d': this.createWindIcon(),
-                    '50n': this.createWindIcon()
+            // ========== SETTINGS MANAGEMENT ==========
+            setupSettings() {
+                // Theme switch
+                const themeSwitch = document.getElementById('themeSwitch');
+                themeSwitch.checked = localStorage.getItem('theme') === 'light';
+                
+                themeSwitch.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        this.setTheme('light');
+                    } else {
+                        this.setTheme('dark');
+                    }
+                });
+                
+                // Temperature unit
+                const tempUnit = document.getElementById('tempUnit');
+                tempUnit.value = localStorage.getItem('tempUnit') || 'metric';
+                tempUnit.addEventListener('change', (e) => {
+                    this.currentUnit = e.target.value;
+                    localStorage.setItem('tempUnit', this.currentUnit);
+                    
+                    // Reload weather with new unit
+                    const city = this.getStoredCity();
+                    if (city) {
+                        this.getWeather(city);
+                    }
+                });
+                
+                // Wind unit
+                const windUnit = document.getElementById('windUnit');
+                windUnit.value = localStorage.getItem('windUnit') || 'kmh';
+                windUnit.addEventListener('change', (e) => {
+                    localStorage.setItem('windUnit', e.target.value);
+                    // Update wind display if weather is loaded
+                    const windEl = document.getElementById('windSpeed');
+                    if (windEl.textContent !== '-- km/h') {
+                        this.updateWindDisplay();
+                    }
+                });
+                
+                // Settings buttons
+                document.getElementById('clearCache').addEventListener('click', () => {
+                    localStorage.clear();
+                    this.showNotification('Cache cleared successfully!');
+                    // Reset settings UI
+                    this.setupSettings();
+                });
+                
+                document.getElementById('resetSettings').addEventListener('click', () => {
+                    if (confirm('Are you sure you want to reset all settings?')) {
+                        localStorage.clear();
+                        location.reload();
+                    }
+                });
+                
+                // Notification toggles
+                ['weatherAlerts', 'dailyForecast', 'rainNotifications', 'autoLocation', 'saveLocations'].forEach(id => {
+                    const toggle = document.getElementById(id);
+                    toggle.checked = localStorage.getItem(id) !== 'false';
+                    toggle.addEventListener('change', (e) => {
+                        localStorage.setItem(id, e.target.checked);
+                    });
+                });
+                
+                // Modal controls
+                document.getElementById('openSettings').addEventListener('click', () => this.openModal('settings'));
+                document.getElementById('closeSettings').addEventListener('click', () => this.closeModal('settings'));
+                document.getElementById('openCalendar').addEventListener('click', () => {
+                    this.openModal('calendar');
+                    this.renderCalendar();
+                });
+                document.getElementById('closeCalendar').addEventListener('click', () => this.closeModal('calendar'));
+                document.getElementById('overlay').addEventListener('click', () => {
+                    this.closeModal('settings');
+                    this.closeModal('calendar');
+                });
+                
+                // Close modals with Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeModal('settings');
+                        this.closeModal('calendar');
+                    }
+                });
+            }
+            
+            // ========== MODAL MANAGEMENT ==========
+            openModal(type) {
+                const modal = document.getElementById(`${type}${type === 'settings' ? 'Panel' : 'Modal'}`);
+                const overlay = document.getElementById('overlay');
+                
+                overlay.classList.add('active');
+                modal.classList.add('active');
+                
+                // Disable body scroll
+                document.body.style.overflow = 'hidden';
+            }
+            
+            closeModal(type) {
+                const modal = document.getElementById(`${type}${type === 'settings' ? 'Panel' : 'Modal'}`);
+                const overlay = document.getElementById('overlay');
+                
+                overlay.classList.remove('active');
+                modal.classList.remove('active');
+                
+                // Enable body scroll
+                document.body.style.overflow = '';
+            }
+            
+            // ========== THEME MANAGEMENT ==========
+            setTheme(theme) {
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                    document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    document.body.classList.remove('light-theme');
+                    document.getElementById('themeToggle').innerHTML = '<i class="fas fa-moon"></i>';
+                }
+                localStorage.setItem('theme', theme);
+                
+                // Update charts if they exist
+                if (this.charts.temp) {
+                    this.charts.temp.update();
+                    this.charts.humidity.update();
+                }
+            }
+            
+            applySavedTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-theme');
+                    document.getElementById('themeSwitch').checked = true;
+                    document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    document.getElementById('themeToggle').innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+            
+            // ========== WEATHER METHODS ==========
+            async getWeather(city) {
+                if (this.isLoading) return;
+                
+                try {
+                    this.showLoading(true);
+                    this.storeCity(city);
+                    
+                    // Use sample data if no API key
+                    if (this.apiKey === 'YOUR_API_KEY_HERE') {
+                        await this.useSampleData(city);
+                        return;
+                    }
+                    
+                    const geoResponse = await fetch(
+                        `${this.geoUrl}/direct?q=${encodeURIComponent(city)}&limit=1&appid=${this.apiKey}`
+                    );
+                    
+                    if (!geoResponse.ok) throw new Error('Failed to fetch location');
+                    
+                    const geoData = await geoResponse.json();
+                    
+                    if (!geoData || geoData.length === 0) {
+                        throw new Error('City not found');
+                    }
+                    
+                    const { lat, lon, name, country } = geoData[0];
+                    
+                    const [weatherResponse, forecastResponse] = await Promise.all([
+                        fetch(`${this.baseUrl}/weather?lat=${lat}&lon=${lon}&units=${this.currentUnit}&appid=${this.apiKey}`),
+                        fetch(`${this.baseUrl}/forecast?lat=${lat}&lon=${lon}&units=${this.currentUnit}&appid=${this.apiKey}`)
+                    ]);
+                    
+                    if (!weatherResponse.ok || !forecastResponse.ok) {
+                        throw new Error('Failed to fetch weather data');
+                    }
+                    
+                    const weatherData = await weatherResponse.json();
+                    const forecastData = await forecastResponse.json();
+                    
+                    await this.animateWeatherTransition();
+                    this.updateCurrentWeather(weatherData, name, country);
+                    this.updateForecast(forecastData);
+                    this.updateCharts(forecastData);
+                    this.updateHourlyForecast(forecastData);
+                    this.updateCalendarWeatherStats(forecastData);
+                    this.updateActiveLocationButton(city);
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    
+                    // Use sample data as fallback
+                    this.showNotification('Using sample data. Please add your OpenWeather API key.');
+                    await this.useSampleData(city);
+                    
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+            
+            async useSampleData(city) {
+                // Sample weather data for demonstration
+                const sampleWeather = {
+                    main: {
+                        temp: 28,
+                        humidity: 75,
+                        pressure: 1013
+                    },
+                    weather: [{
+                        description: 'partly cloudy',
+                        icon: '02d'
+                    }],
+                    wind: {
+                        speed: 12
+                    },
+                    visibility: 10000,
+                    name: city,
+                    sys: {
+                        country: 'ID'
+                    }
                 };
                 
-                this.detailIcons = {
-                    humidity: this.createDropletIcon(),
-                    wind: this.createWindIcon(),
-                    visibility: this.createEyeIcon(),
-                    pressure: this.createGaugeIcon(),
-                    temperature: this.createThermometerIcon(),
-                    rain: this.createCloudRainIcon(),
-                    sun: this.createSunIcon(),
-                    uv: this.createSunIcon()
+                // Sample forecast data
+                const sampleForecast = {
+                    list: Array.from({ length: 40 }, (_, i) => ({
+                        dt: Math.floor(Date.now() / 1000) + i * 21600,
+                        main: {
+                            temp: 28 + Math.sin(i) * 5,
+                            humidity: 70 + Math.cos(i) * 10
+                        },
+                        weather: [{
+                            description: i % 3 === 0 ? 'sunny' : i % 3 === 1 ? 'cloudy' : 'rainy',
+                            icon: i % 3 === 0 ? '01d' : i % 3 === 1 ? '03d' : '10d'
+                        }]
+                    }))
                 };
+                
+                await this.animateWeatherTransition();
+                this.updateCurrentWeather(sampleWeather, city, 'Indonesia');
+                this.updateForecast(sampleForecast);
+                this.updateCharts(sampleForecast);
+                this.updateHourlyForecast(sampleForecast);
+                this.updateCalendarWeatherStats(sampleForecast);
+                this.updateActiveLocationButton(city);
             }
             
-            createLucideIcon(svgContent, size = 24) {
-                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                svg.setAttribute('width', size);
-                svg.setAttribute('height', size);
-                svg.setAttribute('viewBox', '0 0 24 24');
-                svg.setAttribute('fill', 'none');
-                svg.setAttribute('stroke', 'currentColor');
-                svg.setAttribute('stroke-width', '2');
-                svg.setAttribute('stroke-linecap', 'round');
-                svg.setAttribute('stroke-linejoin', 'round');
-                svg.innerHTML = svgContent;
-                return svg;
+            // ========== UI UPDATES ==========
+            updateCurrentWeather(data, city, country) {
+                // Update temperature
+                const tempElement = document.getElementById('currentTemp');
+                const newTemp = Math.round(data.main.temp);
+                
+                gsap.to(tempElement, {
+                    duration: 1.5,
+                    ease: "power2.out",
+                    text: {
+                        value: `${newTemp}<span class="temp-unit">°${this.currentUnit === 'metric' ? 'C' : 'F'}</span>`,
+                        type: "diff"
+                    }
+                });
+                
+                // Update location
+                const locationElement = document.getElementById('locationName');
+                gsap.to(locationElement, {
+                    duration: 0.8,
+                    text: `${city}, ${country}`,
+                    ease: "power2.out"
+                });
+                
+                // Update weather description
+                const desc = data.weather[0].description;
+                document.getElementById('weatherDesc').textContent = 
+                    desc.charAt(0).toUpperCase() + desc.slice(1);
+                
+                // Update weather icon
+                const iconElement = document.getElementById('weatherIcon');
+                const icon = this.getWeatherIcon(data.weather[0].icon);
+                
+                gsap.to(iconElement, {
+                    duration: 0.6,
+                    rotation: 360,
+                    scale: 1.3,
+                    ease: "back.out(1.7)",
+                    onComplete: () => {
+                        iconElement.textContent = icon;
+                        gsap.to(iconElement, {
+                            duration: 0.3,
+                            rotation: 0,
+                            scale: 1,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+                
+                // Update details
+                document.getElementById('humidity').textContent = `${data.main.humidity}%`;
+                this.updateWindDisplay(data.wind.speed);
+                document.getElementById('visibility').textContent = `${(data.visibility / 1000).toFixed(1)} km`;
+                document.getElementById('pressure').textContent = `${data.main.pressure} hPa`;
+                
+                // Update date and time
+                this.updateDateTime();
             }
             
-            createSunIcon() {
-                return this.createLucideIcon(`
-                    <circle cx="12" cy="12" r="4"></circle>
-                    <path d="M12 2v2"></path>
-                    <path d="M12 20v2"></path>
-                    <path d="m4.93 4.93 1.41 1.41"></path>
-                    <path d="m17.66 17.66 1.41 1.41"></path>
-                    <path d="M2 12h2"></path>
-                    <path d="M20 12h2"></path>
-                    <path d="m6.34 17.66-1.41 1.41"></path>
-                    <path d="m19.07 4.93-1.41 1.41"></path>
-                `, 64);
+            updateWindDisplay(speed) {
+                const windUnit = localStorage.getItem('windUnit') || 'kmh';
+                let displaySpeed;
+                let unit;
+                
+                switch(windUnit) {
+                    case 'mph':
+                        displaySpeed = (speed * 0.621371).toFixed(1);
+                        unit = 'mph';
+                        break;
+                    case 'mps':
+                        displaySpeed = (speed / 3.6).toFixed(1);
+                        unit = 'm/s';
+                        break;
+                    default:
+                        displaySpeed = Math.round(speed);
+                        unit = 'km/h';
+                }
+                
+                document.getElementById('windSpeed').textContent = `${displaySpeed} ${unit}`;
             }
             
-            createMoonIcon() {
-                return this.createLucideIcon(`
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-                `, 64);
-            }
-            
-            createCloudIcon() {
-                return this.createLucideIcon(`
-                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
-                `, 64);
-            }
-            
-            createCloudSunIcon() {
-                return this.createLucideIcon(`
-                    <path d="M12 2v2"></path>
-                    <path d="m4.93 4.93 1.41 1.41"></path>
-                    <path d="M20 12h2"></path>
-                    <path d="m19.07 4.93-1.41 1.41"></path>
-                    <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"></path>
-                    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path>
-                `, 64);
-            }
-            
-            createCloudMoonIcon() {
-                return this.createLucideIcon(`
-                    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path>
-                    <path d="M10.083 9A6.002 6.002 0 0 1 16 4a4.243 4.243 0 0 0 6 6c0 2.22-1.206 4.16-3 5.197"></path>
-                `, 64);
-            }
-            
-            createCloudRainIcon() {
-                return this.createLucideIcon(`
-                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-                    <path d="M16 14v6"></path>
-                    <path d="M8 14v6"></path>
-                    <path d="M12 16v6"></path>
-                `, 64);
-            }
-            
-            createSunRainIcon() {
-                return this.createLucideIcon(`
-                    <path d="M12 2v2"></path>
-                    <path d="m4.93 4.93 1.41 1.41"></path>
-                    <path d="M20 12h2"></path>
-                    <path d="m19.07 4.93-1.41 1.41"></path>
-                    <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"></path>
-                    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path>
-                    <path d="M9 17v3"></path>
-                    <path d="M12 17v3"></path>
-                    <path d="M15 17v3"></path>
-                `, 64);
-            }
-            
-            createMoonRainIcon() {
-                return this.createLucideIcon(`
-                    <path d="M10.083 9A6.002 6.002 0 0 1 16 4a4.243 4.243 0 0 0 6 6c0 2.22-1.206 4.16-3 5.197"></path>
-                    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path>
-                    <path d="M9 17v3"></path>
-                    <path d="M12 17v3"></path>
-                    <path d="M15 17v3"></path>
-                `, 64);
-            }
-            
-            createCloudLightningIcon() {
-                return this.createLucideIcon(`
-                    <path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"></path>
-                    <path d="m13 12-3 5h4l-3 5"></path>
-                `, 64);
-            }
-            
-            createSnowIcon() {
-                return this.createLucideIcon(`
-                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-                    <path d="m8 15 4 4 4-4"></path>
-                    <path d="m12 11 4 4 4-4"></path>
-                `, 64);
-            }
-            
-            createWindIcon() {
-                return this.createLucideIcon(`
-                    <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"></path>
-                    <path d="M9.6 4.6A2 2 0 1 1 11 8H2"></path>
-                    <path d="M12.6 19.4A2 2 0 1 0 14 16H2"></path>
-                `, 24);
-            }
-            
-            createDropletIcon() {
-                return this.createLucideIcon(`
-                    <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path>
-                `, 24);
-            }
-            
-            createEyeIcon() {
-                return this.createLucideIcon(`
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                `, 24);
-            }
-            
-            createGaugeIcon() {
-                return this.createLucideIcon(`
-                    <path d="m12 14 4-4"></path>
-                    <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
-                `, 24);
-            }
-            
-            createThermometerIcon() {
-                return this.createLucideIcon(`
-                    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
-                `, 24);
+            updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                const dateTimeStr = now.toLocaleDateString('en-US', options);
+                document.getElementById('dateTime').textContent = dateTimeStr;
             }
             
             getWeatherIcon(iconCode) {
-                return this.weatherIcons[iconCode] || this.createCloudIcon();
+                const icons = {
+                    '01d': '☀️', '01n': '🌙',
+                    '02d': '⛅', '02n': '☁️',
+                    '03d': '☁️', '03n': '☁️',
+                    '04d': '☁️', '04n': '☁️',
+                    '09d': '🌧️', '09n': '🌧️',
+                    '10d': '🌦️', '10n': '🌧️',
+                    '11d': '⛈️', '11n': '⛈️',
+                    '13d': '❄️', '13n': '❄️',
+                    '50d': '🌫️', '50n': '🌫️'
+                };
+                return icons[iconCode] || '🌤️';
             }
             
-            getDetailIcon(type) {
-                return this.detailIcons[type] || this.createThermometerIcon();
+            updateActiveLocationButton(city) {
+                document.querySelectorAll('.location-btn[data-city]').forEach(btn => {
+                    const isActive = btn.dataset.city === city;
+                    btn.classList.toggle('active', isActive);
+                });
+                
+                const currentBtn = document.getElementById('currentLocationBtn');
+                if (city === 'Current Location') {
+                    currentBtn.classList.add('active');
+                } else {
+                    currentBtn.classList.remove('active');
+                }
             }
             
-            // ========== LOCATION DETECTOR ==========
+            // ========== CALENDAR ==========
+            renderCalendar() {
+                const container = document.getElementById('calendarContainer');
+                const year = this.currentDate.getFullYear();
+                const month = this.currentDate.getMonth();
+                
+                // Month names
+                const monthNames = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+                
+                // Day names
+                const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                
+                // Get first day of month
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+                const startingDay = firstDay.getDay();
+                
+                // Update month display
+                document.querySelector('.calendar-current')?.remove();
+                const monthDisplay = document.createElement('div');
+                monthDisplay.className = 'calendar-current';
+                monthDisplay.textContent = `${monthNames[month]} ${year}`;
+                document.querySelector('.calendar-month')?.appendChild(monthDisplay);
+                
+                // Generate calendar HTML
+                let calendarHTML = `
+                    <div class="calendar-month">
+                        <button class="calendar-nav" id="prevMonth">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="calendar-current">${monthNames[month]} ${year}</div>
+                        <button class="calendar-nav" id="nextMonth">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="simple-calendar">
+                `;
+                
+                // Add day headers
+                dayNames.forEach(day => {
+                    calendarHTML += `<div class="calendar-day-header">${day}</div>`;
+                });
+                
+                // Add empty cells for days before the first day of month
+                for (let i = 0; i < startingDay; i++) {
+                    calendarHTML += '<div class="calendar-day"></div>';
+                }
+                
+                // Add days of the month
+                const today = new Date();
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const date = new Date(year, month, day);
+                    const isToday = date.toDateString() === today.toDateString();
+                    const classes = ['calendar-day'];
+                    if (isToday) classes.push('today');
+                    
+                    calendarHTML += `
+                        <div class="${classes.join(' ')}" data-date="${date.toISOString().split('T')[0]}">
+                            ${day}
+                        </div>
+                    `;
+                }
+                
+                calendarHTML += '</div>';
+                container.innerHTML = calendarHTML;
+                
+                // Add event listeners for navigation
+                document.getElementById('prevMonth').addEventListener('click', () => {
+                    this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+                    this.renderCalendar();
+                });
+                
+                document.getElementById('nextMonth').addEventListener('click', () => {
+                    this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+                    this.renderCalendar();
+                });
+                
+                // Add click listeners for days
+                container.querySelectorAll('.calendar-day[data-date]').forEach(day => {
+                    day.addEventListener('click', () => {
+                        const date = day.dataset.date;
+                        this.showNotification(`Selected date: ${date}`);
+                    });
+                });
+            }
+            
+            updateCalendarWeatherStats(forecastData) {
+                // Calculate average temperature
+                const temps = forecastData.list.slice(0, 8).map(item => item.main.temp);
+                const avgTemp = Math.round(temps.reduce((a, b) => a + b) / temps.length);
+                document.getElementById('avgTemp').textContent = `${avgTemp}°C`;
+                
+                // Calculate rain chance
+                const rainChance = forecastData.list.filter(item => 
+                    item.weather[0].description.toLowerCase().includes('rain')
+                ).length / forecastData.list.length * 100;
+                document.getElementById('rainChance').textContent = `${Math.round(rainChance)}%`;
+                
+                // Update other stats
+                document.getElementById('sunHours').textContent = '8h';
+                document.getElementById('uvIndex').textContent = '5';
+                
+                // Update weather events
+                this.updateWeatherEvents(forecastData);
+            }
+            
+            updateWeatherEvents(forecastData) {
+                const weatherEvents = document.getElementById('weatherEvents');
+                weatherEvents.innerHTML = '';
+                
+                const events = [
+                    { time: 'Today', title: forecastData.list[0].weather[0].description },
+                    { time: 'Tomorrow', title: forecastData.list[8]?.weather[0].description || 'Mostly sunny' },
+                    { time: 'This Week', title: 'Mixed conditions' }
+                ];
+                
+                events.forEach(event => {
+                    const eventItem = document.createElement('div');
+                    eventItem.className = 'event-item';
+                    eventItem.innerHTML = `
+                        <div class="event-time">${event.time}</div>
+                        <div class="event-title">${event.title}</div>
+                    `;
+                    weatherEvents.appendChild(eventItem);
+                });
+            }
+            
+            // ========== ANIMATIONS ==========
+            animateWeatherTransition() {
+                return new Promise(resolve => {
+                    gsap.to('.current-weather, .forecast-section, .charts-section, .hourly-section', {
+                        duration: 0.3,
+                        opacity: 0,
+                        y: -20,
+                        ease: "power2.in",
+                        stagger: 0.05,
+                        onComplete: () => {
+                            gsap.to('.current-weather, .forecast-section, .charts-section, .hourly-section', {
+                                duration: 0.6,
+                                opacity: 1,
+                                y: 0,
+                                ease: "power2.out",
+                                stagger: 0.1,
+                                onComplete: resolve
+                            });
+                        }
+                    });
+                });
+            }
+            
+            // ========== EVENT HANDLERS ==========
+            setupEventListeners() {
+                // Search functionality
+                document.getElementById('searchBtn').addEventListener('click', () => this.searchWeather());
+                document.getElementById('searchInput').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.searchWeather();
+                });
+                
+                // Current location button
+                document.getElementById('currentLocationBtn').addEventListener('click', () => {
+                    this.showLocationDetector('Detecting your current location...');
+                    this.getUserLocation();
+                });
+                
+                // City buttons
+                document.querySelectorAll('.location-btn[data-city]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const city = e.target.dataset.city;
+                        this.showLocationDetector(`Loading weather for ${city}...`);
+                        this.getWeather(city);
+                    });
+                });
+                
+                // Theme toggle button
+                document.getElementById('themeToggle').addEventListener('click', () => this.toggleTheme());
+            }
+            
+            async searchWeather() {
+                const city = document.getElementById('searchInput').value.trim();
+                if (city) {
+                    this.showLocationDetector(`Searching for ${city}...`);
+                    await this.getWeather(city);
+                    document.getElementById('searchInput').value = '';
+                    
+                    // Button animation
+                    const btn = document.getElementById('searchBtn');
+                    gsap.to(btn, {
+                        duration: 0.3,
+                        scale: 0.95,
+                        ease: "power2.inOut",
+                        yoyo: true,
+                        repeat: 1
+                    });
+                }
+            }
+            
+            toggleTheme() {
+                const body = document.body;
+                const btn = document.getElementById('themeToggle');
+                const icon = btn.querySelector('i');
+                
+                gsap.to(btn, {
+                    duration: 0.6,
+                    rotation: 360,
+                    scale: 1.1,
+                    ease: "back.out(1.7)",
+                    onComplete: () => {
+                        gsap.to(btn, {
+                            duration: 0.3,
+                            scale: 1,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+                
+                if (body.classList.contains('light-theme')) {
+                    body.classList.remove('light-theme');
+                    icon.className = 'fas fa-moon';
+                    localStorage.setItem('theme', 'dark');
+                    document.getElementById('themeSwitch').checked = false;
+                } else {
+                    body.classList.add('light-theme');
+                    icon.className = 'fas fa-sun';
+                    localStorage.setItem('theme', 'light');
+                    document.getElementById('themeSwitch').checked = true;
+                }
+                
+                if (this.charts.temp) {
+                    this.charts.temp.update();
+                    this.charts.humidity.update();
+                }
+            }
+            
+            // ========== LOCATION DETECTION ==========
+            async getUserLocation() {
+                return new Promise((resolve) => {
+                    if (!navigator.geolocation) {
+                        this.showNotification('Geolocation not supported. Using default city.');
+                        setTimeout(() => {
+                            this.getWeather('Jakarta');
+                            resolve();
+                        }, 1500);
+                        return;
+                    }
+                    
+                    navigator.geolocation.getCurrentPosition(
+                        async (position) => {
+                            const { latitude, longitude } = position.coords;
+                            this.showLocationDetector('Location found! Loading weather...');
+                            
+                            // For demo, just use Jakarta
+                            await this.getWeather('Jakarta');
+                            resolve();
+                        },
+                        async (error) => {
+                            let errorMessage = 'Cannot detect location. Using default city.';
+                            this.showNotification(errorMessage);
+                            setTimeout(() => {
+                                this.getWeather('Jakarta');
+                                resolve();
+                            }, 2000);
+                        },
+                        {
+                            enableHighAccuracy: true,
+                            timeout: 8000,
+                            maximumAge: 600000
+                        }
+                    );
+                });
+            }
+            
+            // ========== UTILITY METHODS ==========
+            showLoading(show) {
+                const loading = document.getElementById('loading');
+                if (show) {
+                    loading.classList.add('active');
+                } else {
+                    loading.classList.remove('active');
+                }
+            }
+            
             showLocationDetector(message) {
                 const detector = document.getElementById('locationDetector');
                 const messageEl = document.getElementById('locationMessage');
-                
-                gsap.killTweensOf(detector);
-                gsap.killTweensOf(messageEl);
                 
                 messageEl.textContent = message;
                 detector.classList.add('show');
@@ -2259,961 +2485,27 @@
                 });
             }
             
-            // ========== WEATHER METHODS ==========
-            async getWeatherByCoords(lat, lon) {
-                try {
-                    this.showLoading(true);
-                    
-                    const geoResponse = await fetch(
-                        `${this.geoUrl}/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${this.apiKey}`
-                    );
-                    const geoData = await geoResponse.json();
-                    
-                    if (!geoData || geoData.length === 0) {
-                        throw new Error('Location not found');
-                    }
-                    
-                    const city = geoData[0]?.name || 'Current Location';
-                    const country = geoData[0]?.country || '';
-                    
-                    this.storeCity(city);
-                    this.storeCoords(lat, lon);
-                    
-                    const [weatherData, forecastData] = await Promise.all([
-                        fetch(`${this.baseUrl}/weather?lat=${lat}&lon=${lon}&units=${this.currentUnit}&appid=${this.apiKey}`)
-                            .then(r => r.json()),
-                        fetch(`${this.baseUrl}/forecast?lat=${lat}&lon=${lon}&units=${this.currentUnit}&appid=${this.apiKey}`)
-                            .then(r => r.json())
-                    ]);
-                    
-                    await this.animateWeatherTransition();
-                    this.updateCurrentWeather(weatherData, city, country);
-                    this.updateForecast(forecastData);
-                    this.updateCharts(forecastData);
-                    this.updateHourlyForecast(forecastData);
-                    this.updateCalendarEvents();
-                    this.updateWeatherStats(forecastData);
-                    this.updateMap(lat, lon, weatherData);
-                    this.updateCurrentLocationButton(city);
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                    this.showErrorAnimation();
-                    const fallbackCity = this.getStoredCity() || 'Jakarta';
-                    this.getWeather(fallbackCity);
-                } finally {
-                    this.showLoading(false);
-                }
+            showNotification(message) {
+                this.showLocationDetector(message);
+                setTimeout(() => this.hideLocationDetector(), 3000);
             }
             
-            async getWeather(city) {
-                if (this.isLoading) return;
-                
-                try {
-                    this.showLoading(true);
-                    this.storeCity(city);
-                    this.storeLocationType('city');
-                    localStorage.removeItem('weather_coords');
-                    
-                    const geoResponse = await fetch(
-                        `${this.geoUrl}/direct?q=${city}&limit=1&appid=${this.apiKey}`
-                    );
-                    const geoData = await geoResponse.json();
-                    
-                    if (!geoData || geoData.length === 0) {
-                        throw new Error('City not found');
-                    }
-                    
-                    const { lat, lon, name, country } = geoData[0];
-                    
-                    const [weatherData, forecastData] = await Promise.all([
-                        fetch(`${this.baseUrl}/weather?lat=${lat}&lon=${lon}&units=${this.currentUnit}&appid=${this.apiKey}`)
-                            .then(r => r.json()),
-                        fetch(`${this.baseUrl}/forecast?lat=${lat}&lon=${lon}&units=${this.currentUnit}&appid=${this.apiKey}`)
-                            .then(r => r.json())
-                    ]);
-                    
-                    await this.animateWeatherTransition();
-                    this.updateCurrentWeather(weatherData, name, country);
-                    this.updateForecast(forecastData);
-                    this.updateCharts(forecastData);
-                    this.updateHourlyForecast(forecastData);
-                    this.updateCalendarEvents();
-                    this.updateWeatherStats(forecastData);
-                    this.updateMap(lat, lon, weatherData);
-                    this.updateActiveLocationButton(city);
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                    this.showErrorAnimation();
-                    
-                    this.showLocationDetector(`Error: ${error.message || 'Failed to load weather'}`);
-                    setTimeout(() => this.hideLocationDetector(), 3000);
-                } finally {
-                    this.showLoading(false);
-                }
+            storeCity(city) {
+                localStorage.setItem('weather_city', city);
+                this.currentCity = city;
             }
             
-            // ========== UI UPDATES ==========
-            updateCurrentWeather(data, city, country) {
-                // Update temperature with smooth animation
-                const tempElement = document.getElementById('currentTemp');
-                const newTemp = Math.round(data.main.temp);
-                
-                gsap.to(tempElement, {
-                    duration: 1.5,
-                    ease: "power2.out",
-                    text: {
-                        value: `${newTemp}<span class="temp-unit">°${this.currentUnit === 'metric' ? 'C' : 'F'}</span>`,
-                        type: "diff"
-                    },
-                    onUpdate: function() {
-                        const progress = this.progress();
-                        gsap.to(tempElement, {
-                            duration: 0.1,
-                            scale: 1 + Math.sin(progress * Math.PI) * 0.1
-                        });
-                    }
-                });
-                
-                // Update location
-                const locationElement = document.getElementById('locationName');
-                gsap.to(locationElement, {
-                    duration: 0.8,
-                    text: `${city}, ${country}`,
-                    ease: "power2.out"
-                });
-                
-                // Update weather description
-                const desc = data.weather[0].description;
-                document.getElementById('weatherDesc').textContent = 
-                    desc.charAt(0).toUpperCase() + desc.slice(1);
-                
-                // Update weather icon
-                const iconElement = document.getElementById('weatherIcon');
-                const weatherIcon = this.getWeatherIcon(data.weather[0].icon);
-                
-                gsap.to(iconElement, {
-                    duration: 0.3,
-                    opacity: 0,
-                    scale: 0.8,
-                    ease: "power2.in",
-                    onComplete: () => {
-                        iconElement.innerHTML = '';
-                        iconElement.appendChild(weatherIcon);
-                        gsap.to(iconElement, {
-                            duration: 0.6,
-                            opacity: 1,
-                            scale: 1,
-                            rotation: 360,
-                            ease: "back.out(1.7)"
-                        });
-                    }
-                });
-                
-                // Update details with stagger animation
-                const details = [
-                    { id: 'humidity', value: `${data.main.humidity}%`, type: 'humidity' },
-                    { id: 'windSpeed', value: `${Math.round(data.wind.speed)} ${this.getWindUnit()}`, type: 'wind' },
-                    { id: 'visibility', value: `${(data.visibility / 1000).toFixed(1)} km`, type: 'visibility' },
-                    { id: 'pressure', value: `${data.main.pressure} hPa`, type: 'pressure' }
-                ];
-                
-                details.forEach((detail, index) => {
-                    const card = document.getElementById(detail.id).parentElement.parentElement;
-                    const iconEl = card.querySelector('.detail-icon');
-                    
-                    // Update icon
-                    gsap.to(iconEl, {
-                        duration: 0.3,
-                        delay: index * 0.1,
-                        scale: 1.3,
-                        rotation: 15,
-                        yoyo: true,
-                        repeat: 1,
-                        ease: "power2.inOut",
-                        onComplete: () => {
-                            iconEl.innerHTML = '';
-                            iconEl.appendChild(this.getDetailIcon(detail.type));
-                        }
-                    });
-                    
-                    // Update value
-                    const valueEl = document.getElementById(detail.id);
-                    gsap.to(valueEl, {
-                        duration: 0.8,
-                        delay: index * 0.1,
-                        text: detail.value,
-                        ease: "power2.out"
-                    });
-                });
-                
-                // Update date and time
-                this.updateDateTime();
-                
-                // Add pulse effect to weather icon background
-                gsap.to('.weather-icon-bg', {
-                    duration: 2,
-                    scale: 1.1,
-                    opacity: 0.2,
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "sine.inOut"
-                });
-            }
-            
-            getWindUnit() {
-                const windUnit = localStorage.getItem('wind_unit') || 'kmh';
-                switch(windUnit) {
-                    case 'mph': return 'mph';
-                    case 'mps': return 'm/s';
-                    default: return 'km/h';
-                }
-            }
-            
-            updateActiveLocationButton(city) {
-                document.querySelectorAll('.location-btn[data-city]').forEach(btn => {
-                    const isActive = btn.dataset.city === city;
-                    btn.classList.toggle('active', isActive);
-                    
-                    if (isActive) {
-                        gsap.fromTo(btn,
-                            { scale: 1.2, boxShadow: '0 0 30px var(--primary)' },
-                            {
-                                duration: 0.5,
-                                scale: 1,
-                                boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)',
-                                ease: "elastic.out(1, 0.5)"
-                            }
-                        );
-                    }
-                });
-            }
-            
-            updateCurrentLocationButton(city) {
-                const currentBtn = document.getElementById('currentLocationBtn');
-                currentBtn.innerHTML = `<i class="fas fa-location-crosshairs"></i> ${city}`;
-                currentBtn.classList.add('active');
-                
-                document.querySelectorAll('.location-btn').forEach(btn => {
-                    if (btn.id !== 'currentLocationBtn') btn.classList.remove('active');
-                });
-            }
-            
-            // ========== NAVIGATION ==========
-            setupNavigation() {
-                const navLinks = document.querySelectorAll('.nav-link');
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-                const mobileMenu = document.getElementById('mobileMenu');
-                
-                navLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const page = link.dataset.page;
-                        this.switchPage(page);
-                        
-                        // Update active states
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                        
-                        // Close mobile menu
-                        mobileMenu.classList.remove('show');
-                    });
-                });
-                
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('show');
-                });
-                
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        mobileMenu.classList.remove('show');
-                    }
-                });
-            }
-            
-            switchPage(page) {
-                const pages = document.querySelectorAll('.page-container');
-                pages.forEach(p => p.classList.remove('active'));
-                
-                const targetPage = document.getElementById(`${page}Page`);
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                    
-                    // Trigger page-specific actions
-                    switch(page) {
-                        case 'calendar':
-                            this.updateCalendar();
-                            break;
-                        case 'maps':
-                            this.initializeMap();
-                            break;
-                    }
-                    
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            }
-            
-            // ========== CALENDAR ==========
-            setupCalendar() {
-                const calendarEl = document.getElementById('calendar');
-                
-                this.calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
-                    headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    },
-                    themeSystem: 'bootstrap5',
-                    dayMaxEvents: true,
-                    events: this.getCalendarEvents(),
-                    eventClick: (info) => {
-                        alert(`Event: ${info.event.title}\nDate: ${info.event.start.toLocaleDateString()}`);
-                    },
-                    datesSet: () => this.updateCalendarEvents()
-                });
-                
-                this.calendar.render();
-            }
-            
-            updateCalendar() {
-                if (this.calendar) {
-                    this.calendar.render();
-                    this.updateCalendarEvents();
-                }
-            }
-            
-            getCalendarEvents() {
-                const events = [];
-                const today = new Date();
-                
-                // Add some sample events
-                for (let i = 0; i < 10; i++) {
-                    const date = new Date();
-                    date.setDate(today.getDate() + i);
-                    
-                    const eventTypes = ['Meeting', 'Appointment', 'Conference', 'Workshop', 'Webinar'];
-                    const eventType = eventTypes[Math.floor(Math.random() * eventTypes.length)];
-                    
-                    events.push({
-                        title: eventType,
-                        start: date.toISOString().split('T')[0],
-                        backgroundColor: this.getRandomColor(),
-                        borderColor: this.getRandomColor()
-                    });
-                }
-                
-                return events;
-            }
-            
-            updateCalendarEvents() {
-                const events = this.getCalendarEvents();
-                if (this.calendar) {
-                    this.calendar.removeAllEvents();
-                    this.calendar.addEventSource(events);
-                }
-                
-                // Update today's events
-                this.updateTodayEvents();
-            }
-            
-            updateTodayEvents() {
-                const todayEvents = document.getElementById('todayEvents');
-                todayEvents.innerHTML = '';
-                
-                const events = [
-                    { time: '09:00 AM', title: 'Team Meeting' },
-                    { time: '02:00 PM', title: 'Client Call' },
-                    { time: '04:30 PM', title: 'Project Review' }
-                ];
-                
-                events.forEach(event => {
-                    const eventItem = document.createElement('div');
-                    eventItem.className = 'event-item';
-                    eventItem.innerHTML = `
-                        <div class="event-time">${event.time}</div>
-                        <div class="event-title">${event.title}</div>
-                    `;
-                    todayEvents.appendChild(eventItem);
-                });
-            }
-            
-            updateWeatherStats(forecastData) {
-                // Calculate average temperature
-                const temps = forecastData.list.slice(0, 8).map(item => item.main.temp);
-                const avgTemp = Math.round(temps.reduce((a, b) => a + b) / temps.length);
-                document.getElementById('avgTemp').textContent = `${avgTemp}°C`;
-                
-                // Calculate rain chance (simplified)
-                const rainChance = forecastData.list.filter(item => 
-                    item.weather[0].main.toLowerCase().includes('rain')
-                ).length / forecastData.list.length * 100;
-                document.getElementById('rainChance').textContent = `${Math.round(rainChance)}%`;
-                
-                // Update other stats
-                document.getElementById('sunHours').textContent = '8h';
-                document.getElementById('uvIndex').textContent = '5';
-                
-                // Update weather events
-                this.updateWeatherEvents(forecastData);
-            }
-            
-            updateWeatherEvents(forecastData) {
-                const weatherEvents = document.getElementById('weatherEvents');
-                weatherEvents.innerHTML = '';
-                
-                const events = [
-                    { time: 'Today', title: forecastData.list[0].weather[0].description },
-                    { time: 'Tomorrow', title: forecastData.list[8].weather[0].description },
-                    { time: 'Next 3 days', title: 'Mostly sunny' }
-                ];
-                
-                events.forEach(event => {
-                    const eventItem = document.createElement('div');
-                    eventItem.className = 'event-item';
-                    eventItem.innerHTML = `
-                        <div class="event-time">${event.time}</div>
-                        <div class="event-title">${event.title}</div>
-                    `;
-                    weatherEvents.appendChild(eventItem);
-                });
-            }
-            
-            // ========== MAPS ==========
-            initializeMap() {
-                if (!this.map) {
-                    this.map = L.map('map').setView([-6.2088, 106.8456], 5);
-                    
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(this.map);
-                    
-                    // Add some sample locations
-                    const locations = [
-                        { name: 'Jakarta', lat: -6.2088, lng: 106.8456 },
-                        { name: 'Surabaya', lat: -7.2575, lng: 112.7521 },
-                        { name: 'Bandung', lat: -6.9175, lng: 107.6191 },
-                        { name: 'Bali', lat: -8.4095, lng: 115.1889 },
-                        { name: 'Yogyakarta', lat: -7.7956, lng: 110.3695 }
-                    ];
-                    
-                    locations.forEach(location => {
-                        L.marker([location.lat, location.lng])
-                            .addTo(this.map)
-                            .bindPopup(`<b>${location.name}</b><br>Click for weather details`)
-                            .on('click', () => {
-                                this.showLocationDetector(`Loading ${location.name}...`);
-                                this.getWeather(location.name);
-                            });
-                    });
-                    
-                    this.updateWeatherLocations(locations);
-                }
-            }
-            
-            updateMap(lat, lng, weatherData) {
-                if (this.map) {
-                    this.map.setView([lat, lng], 10);
-                    
-                    // Clear existing markers
-                    this.map.eachLayer(layer => {
-                        if (layer instanceof L.Marker) {
-                            this.map.removeLayer(layer);
-                        }
-                    });
-                    
-                    // Add new marker
-                    L.marker([lat, lng])
-                        .addTo(this.map)
-                        .bindPopup(`
-                            <b>${weatherData.name}</b><br>
-                            ${Math.round(weatherData.main.temp)}°C<br>
-                            ${weatherData.weather[0].description}
-                        `)
-                        .openPopup();
-                }
-            }
-            
-            updateWeatherLocations(locations) {
-                const container = document.getElementById('weatherLocations');
-                container.innerHTML = '';
-                
-                locations.forEach(location => {
-                    const item = document.createElement('div');
-                    item.className = 'location-item';
-                    item.innerHTML = `
-                        <div class="location-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="location-info">
-                            <h4>${location.name}</h4>
-                            <p>Click to view weather</p>
-                        </div>
-                    `;
-                    
-                    item.addEventListener('click', () => {
-                        this.showLocationDetector(`Loading ${location.name}...`);
-                        this.getWeather(location.name);
-                    });
-                    
-                    container.appendChild(item);
-                });
-            }
-            
-            // ========== SETTINGS ==========
-            setupSettings() {
-                // Theme switch
-                const themeSwitch = document.getElementById('themeSwitch');
-                const savedTheme = this.getStoredTheme();
-                
-                if (savedTheme === 'light') {
-                    themeSwitch.checked = true;
-                    document.body.classList.add('light-theme');
-                }
-                
-                themeSwitch.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        document.body.classList.add('light-theme');
-                        this.storeTheme('light');
-                    } else {
-                        document.body.classList.remove('light-theme');
-                        this.storeTheme('dark');
-                    }
-                });
-                
-                // Temperature unit
-                const tempUnit = document.getElementById('tempUnit');
-                tempUnit.value = this.currentUnit;
-                tempUnit.addEventListener('change', (e) => {
-                    this.currentUnit = e.target.value;
-                    this.storeUnit(this.currentUnit);
-                    
-                    // Reload weather with new unit
-                    const city = this.getStoredCity();
-                    if (city) {
-                        this.getWeather(city);
-                    }
-                });
-                
-                // Wind unit
-                const windUnit = document.getElementById('windUnit');
-                windUnit.value = localStorage.getItem('wind_unit') || 'kmh';
-                windUnit.addEventListener('change', (e) => {
-                    localStorage.setItem('wind_unit', e.target.value);
-                    const city = this.getStoredCity();
-                    if (city) {
-                        this.getWeather(city);
-                    }
-                });
-                
-                // Settings buttons
-                document.getElementById('clearCache').addEventListener('click', () => {
-                    localStorage.clear();
-                    this.showLocationDetector('Cache cleared successfully!');
-                    setTimeout(() => this.hideLocationDetector(), 2000);
-                });
-                
-                document.getElementById('exportData').addEventListener('click', () => {
-                    this.exportData();
-                });
-                
-                document.getElementById('resetSettings').addEventListener('click', () => {
-                    if (confirm('Are you sure you want to reset all settings?')) {
-                        this.resetSettings();
-                    }
-                });
-                
-                // Other settings
-                document.getElementById('weatherAlerts').addEventListener('change', (e) => {
-                    localStorage.setItem('weather_alerts', e.target.checked);
-                });
-                
-                document.getElementById('autoRefresh').addEventListener('change', (e) => {
-                    localStorage.setItem('auto_refresh', e.target.checked);
-                });
-                
-                document.getElementById('refreshInterval').addEventListener('change', (e) => {
-                    localStorage.setItem('refresh_interval', e.target.value);
-                    this.startAutoRefresh();
-                });
-            }
-            
-            exportData() {
-                const data = {
-                    city: this.getStoredCity(),
-                    coords: this.getStoredCoords(),
-                    unit: this.getStoredUnit(),
-                    theme: this.getStoredTheme(),
-                    timestamp: new Date().toISOString()
-                };
-                
-                const dataStr = JSON.stringify(data, null, 2);
-                const dataBlob = new Blob([dataStr], { type: 'application/json' });
-                const url = URL.createObjectURL(dataBlob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `weather_data_${new Date().getTime()}.json`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                
-                this.showLocationDetector('Data exported successfully!');
-                setTimeout(() => this.hideLocationDetector(), 2000);
-            }
-            
-            resetSettings() {
-                localStorage.clear();
-                location.reload();
-            }
-            
-            applyTheme() {
-                const savedTheme = this.getStoredTheme();
-                if (savedTheme === 'light') {
-                    document.body.classList.add('light-theme');
-                    document.getElementById('themeSwitch').checked = true;
-                }
-            }
-            
-            // ========== ANIMATIONS ==========
-            animateWeatherTransition() {
-                return new Promise(resolve => {
-                    gsap.to('#currentWeather, .forecast-section, .charts-section, .hourly-section', {
-                        duration: 0.3,
-                        opacity: 0,
-                        y: -20,
-                        ease: "power2.in",
-                        stagger: 0.05,
-                        onComplete: () => {
-                            gsap.to('#currentWeather, .forecast-section, .charts-section, .hourly-section', {
-                                duration: 0.6,
-                                opacity: 1,
-                                y: 0,
-                                ease: "power2.out",
-                                stagger: 0.1,
-                                onComplete: resolve
-                            });
-                        }
-                    });
-                });
-            }
-            
-            showErrorAnimation() {
-                gsap.to('.search-section', {
-                    duration: 0.8,
-                    keyframes: {
-                        "0%": { x: 0 },
-                        "20%": { x: 15 },
-                        "40%": { x: -15 },
-                        "60%": { x: 10 },
-                        "80%": { x: -10 },
-                        "100%": { x: 0 }
-                    },
-                    ease: "power1.inOut"
-                });
-                
-                gsap.to('.search-input', {
-                    duration: 0.8,
-                    borderColor: ['#f5576c', 'var(--card-border)'],
-                    boxShadow: ['0 0 0 4px rgba(245, 87, 108, 0.3)', 'none'],
-                    ease: "power2.inOut"
-                });
-            }
-            
-            // ========== OTHER METHODS ==========
-            updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                };
-                const dateTimeStr = now.toLocaleDateString('en-US', options);
-                document.getElementById('dateTime').textContent = dateTimeStr;
-            }
-            
-            showLoading(show) {
-                const loading = document.getElementById('loading');
-                
-                if (show) {
-                    loading.style.display = 'flex';
-                    gsap.from(loading, {
-                        duration: 0.4,
-                        opacity: 0,
-                        ease: "power2.out"
-                    });
-                } else {
-                    gsap.to(loading, {
-                        duration: 0.3,
-                        opacity: 0,
-                        ease: "power2.in",
-                        onComplete: () => {
-                            loading.style.display = 'none';
-                        }
-                    });
-                }
-            }
-            
-            getRandomColor() {
-                const colors = ['#667eea', '#764ba2', '#f5576c', '#4facfe', '#43e97b', '#fa709a'];
-                return colors[Math.floor(Math.random() * colors.length)];
-            }
-            
-            // ========== EVENT HANDLERS ==========
-            setupEventListeners() {
-                // Search functionality
-                document.getElementById('searchBtn').addEventListener('click', () => this.searchWeather());
-                document.getElementById('searchInput').addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') this.searchWeather();
-                });
-                
-                // Current location button
-                document.getElementById('currentLocationBtn').addEventListener('click', () => {
-                    this.showLocationDetector('Detecting your current location...');
-                    this.getUserLocation();
-                });
-                
-                // City buttons
-                document.querySelectorAll('.location-btn[data-city]').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const city = e.currentTarget.dataset.city;
-                        this.showLocationDetector(`Loading weather for ${city}...`);
-                        this.getWeather(city);
-                    });
-                });
-                
-                // Theme toggle
-                document.getElementById('themeToggle').addEventListener('click', () => this.toggleTheme());
-                
-                // Mouse move effects
-                document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-                
-                // Search input focus effect
-                const searchInput = document.getElementById('searchInput');
-                searchInput.addEventListener('focus', () => {
-                    gsap.to(searchInput, {
-                        duration: 0.3,
-                        borderColor: 'var(--primary)',
-                        boxShadow: '0 0 0 4px rgba(102, 126, 234, 0.1)',
-                        ease: "power2.out"
-                    });
-                });
-                
-                searchInput.addEventListener('blur', () => {
-                    gsap.to(searchInput, {
-                        duration: 0.3,
-                        borderColor: 'transparent',
-                        boxShadow: 'none',
-                        ease: "power2.out"
-                    });
-                });
-            }
-            
-            async searchWeather() {
-                const city = document.getElementById('searchInput').value.trim();
-                if (city) {
-                    this.showLocationDetector(`Searching for ${city}...`);
-                    await this.getWeather(city);
-                    document.getElementById('searchInput').value = '';
-                    
-                    // Add search button animation
-                    const btn = document.getElementById('searchBtn');
-                    gsap.to(btn, {
-                        duration: 0.3,
-                        scale: 0.95,
-                        ease: "power2.inOut",
-                        yoyo: true,
-                        repeat: 1
-                    });
-                }
-            }
-            
-            handleMouseMove(e) {
-                const x = (e.clientX / window.innerWidth - 0.5) * 20;
-                const y = (e.clientY / window.innerHeight - 0.5) * 20;
-                
-                gsap.to('.header', {
-                    duration: 1,
-                    x: x * 0.5,
-                    y: y * 0.5,
-                    ease: "power2.out"
-                });
-                
-                gsap.to('.current-weather', {
-                    duration: 1,
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    ease: "power2.out"
-                });
-            }
-            
-            toggleTheme() {
-                const body = document.body;
-                const btn = document.getElementById('themeToggle');
-                const icon = btn.querySelector('i');
-                
-                // Button animation
-                gsap.to(btn, {
-                    duration: 0.6,
-                    rotation: 360,
-                    scale: 1.1,
-                    ease: "back.out(1.7)",
-                    onComplete: () => {
-                        gsap.to(btn, {
-                            duration: 0.3,
-                            scale: 1,
-                            ease: "power2.out"
-                        });
-                    }
-                });
-                
-                // Toggle theme
-                body.classList.toggle('light-theme');
-                
-                // Change icon and update localStorage
-                if (body.classList.contains('light-theme')) {
-                    icon.className = 'fas fa-sun';
-                    this.storeTheme('light');
-                    gsap.to('.gradient-blob', {
-                        duration: 1,
-                        opacity: 0.2,
-                        ease: "power2.out"
-                    });
-                } else {
-                    icon.className = 'fas fa-moon';
-                    this.storeTheme('dark');
-                    gsap.to('.gradient-blob', {
-                        duration: 1,
-                        opacity: 0.3,
-                        ease: "power2.out"
-                    });
-                }
-                
-                // Update charts if they exist
-                if (this.charts.temp) {
-                    this.charts.temp.update();
-                    this.charts.humidity.update();
-                }
-                
-                // Update calendar theme
-                if (this.calendar) {
-                    this.calendar.render();
-                }
-            }
-            
-            // ========== BACKGROUND EFFECTS ==========
-            createParticleSystem() {
-                const colors = ['#667eea', '#764ba2', '#f5576c', '#4facfe', '#43e97b'];
-                
-                for (let i = 0; i < 20; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    
-                    const size = Math.random() * 4 + 2;
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    
-                    particle.style.cssText = `
-                        position: fixed;
-                        width: ${size}px;
-                        height: ${size}px;
-                        background: ${color};
-                        border-radius: 50%;
-                        pointer-events: none;
-                        top: ${Math.random() * 100}vh;
-                        left: ${Math.random() * 100}vw;
-                        z-index: -1;
-                        opacity: ${Math.random() * 0.3 + 0.1};
-                        filter: blur(${Math.random() * 3}px);
-                    `;
-                    
-                    document.body.appendChild(particle);
-                    
-                    // Floating animation
-                    gsap.to(particle, {
-                        duration: Math.random() * 10 + 5,
-                        x: `+=${Math.random() * 200 - 100}`,
-                        y: `+=${Math.random() * 200 - 100}`,
-                        rotation: Math.random() * 360,
-                        repeat: -1,
-                        yoyo: true,
-                        ease: "sine.inOut"
-                    });
-                }
-            }
-            
-            initialAnimations() {
-                // Header animation
-                gsap.from('.header', {
-                    duration: 1.2,
-                    y: -100,
-                    opacity: 0,
-                    ease: "power4.out",
-                    delay: 0.2
-                });
-                
-                // Search section animation
-                gsap.from('.search-section', {
-                    duration: 1,
-                    y: 50,
-                    opacity: 0,
-                    ease: "power3.out",
-                    delay: 0.4
-                });
-                
-                // Sections scroll animations
-                gsap.utils.toArray('.current-weather, .forecast-section, .charts-section, .hourly-section, .calendar-section, .maps-section, .settings-section').forEach(section => {
-                    ScrollTrigger.create({
-                        trigger: section,
-                        start: "top 85%",
-                        onEnter: () => {
-                            gsap.from(section, {
-                                duration: 0.8,
-                                y: 60,
-                                opacity: 0,
-                                ease: "power2.out"
-                            });
-                        }
-                    });
-                });
-                
-                // Floating animation for cards
-                gsap.to('.detail-card', {
-                    duration: 2,
-                    y: -5,
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "sine.inOut",
-                    stagger: 0.2
-                });
+            getStoredCity() {
+                return localStorage.getItem('weather_city');
             }
             
             // ========== FORECAST AND CHARTS ==========
             updateForecast(data) {
                 const forecastGrid = document.getElementById('forecastGrid');
+                forecastGrid.innerHTML = '';
                 
-                gsap.to(forecastGrid.children, {
-                    duration: 0.3,
-                    opacity: 0,
-                    x: -20,
-                    stagger: 0.05,
-                    ease: "power2.in",
-                    onComplete: () => {
-                        forecastGrid.innerHTML = '';
-                        this.populateForecast(data);
-                    }
-                });
-            }
-            
-            populateForecast(data) {
-                const forecastGrid = document.getElementById('forecastGrid');
+                // Group by day
                 const dailyData = {};
-                
                 data.list.forEach(item => {
                     const date = new Date(item.dt * 1000);
                     const day = date.toLocaleDateString('en-US', { weekday: 'short' });
@@ -3222,13 +2514,12 @@
                         dailyData[day] = {
                             temps: [],
                             icons: [],
-                            descriptions: [],
-                            icon: item.weather[0].icon
+                            descriptions: []
                         };
                     }
                     
                     dailyData[day].temps.push(item.main.temp);
-                    dailyData[day].icons.push(item.weather[0].main);
+                    dailyData[day].icons.push(item.weather[0].icon);
                     dailyData[day].descriptions.push(item.weather[0].description);
                 });
                 
@@ -3236,22 +2527,15 @@
                     const avgTemp = Math.round(dayData.temps.reduce((a, b) => a + b) / dayData.temps.length);
                     const maxTemp = Math.round(Math.max(...dayData.temps));
                     const minTemp = Math.round(Math.min(...dayData.temps));
-                    const weatherIcon = this.getWeatherIcon(dayData.icon);
+                    const mainIcon = this.getWeatherIcon(dayData.icons[0]);
                     
                     const card = document.createElement('div');
                     card.className = 'forecast-day';
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(30px)';
-                    
-                    const iconDiv = document.createElement('div');
-                    iconDiv.className = 'forecast-icon';
-                    iconDiv.appendChild(weatherIcon.cloneNode(true));
-                    
                     card.innerHTML = `
                         <div class="forecast-date">${day}</div>
-                    `;
-                    card.appendChild(iconDiv);
-                    card.innerHTML += `
+                        <div class="forecast-icon">${mainIcon}</div>
                         <div class="forecast-temp">
                             <span class="temp-high">${maxTemp}°</span>
                             <span class="temp-low">${minTemp}°</span>
@@ -3266,16 +2550,7 @@
                         delay: index * 0.1,
                         opacity: 1,
                         y: 0,
-                        ease: "back.out(1.7)",
-                        onComplete: () => {
-                            gsap.to(card, {
-                                duration: 2,
-                                y: -5,
-                                repeat: -1,
-                                yoyo: true,
-                                ease: "sine.inOut"
-                            });
-                        }
+                        ease: "back.out(1.7)"
                     });
                 });
             }
@@ -3327,10 +2602,6 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        animation: {
-                            duration: 1000,
-                            easing: 'easeOutQuart'
-                        },
                         plugins: {
                             legend: {
                                 labels: {
@@ -3340,14 +2611,6 @@
                                         size: 14
                                     }
                                 }
-                            },
-                            tooltip: {
-                                backgroundColor: 'var(--card-bg)',
-                                titleColor: 'var(--text-primary)',
-                                bodyColor: 'var(--text-primary)',
-                                borderColor: 'var(--card-border)',
-                                borderWidth: 1,
-                                cornerRadius: 8
                             }
                         },
                         scales: {
@@ -3380,22 +2643,8 @@
             
             updateHourlyForecast(data) {
                 const hourlyScroll = document.getElementById('hourlyScroll');
+                hourlyScroll.innerHTML = '';
                 
-                gsap.to(hourlyScroll.children, {
-                    duration: 0.3,
-                    opacity: 0,
-                    x: 40,
-                    stagger: 0.03,
-                    ease: "power2.in",
-                    onComplete: () => {
-                        hourlyScroll.innerHTML = '';
-                        this.populateHourlyForecast(data);
-                    }
-                });
-            }
-            
-            populateHourlyForecast(data) {
-                const hourlyScroll = document.getElementById('hourlyScroll');
                 const hourlyData = data.list.slice(0, 8);
                 
                 hourlyData.forEach((item, index) => {
@@ -3407,24 +2656,15 @@
                     });
                     
                     const temp = Math.round(item.main.temp);
-                    const weatherIcon = this.getWeatherIcon(item.weather[0].icon);
+                    const icon = this.getWeatherIcon(item.weather[0].icon);
                     
                     const hourlyItem = document.createElement('div');
                     hourlyItem.className = 'hourly-item';
                     hourlyItem.style.opacity = '0';
                     hourlyItem.style.transform = 'translateX(40px)';
-                    
-                    const timeDiv = document.createElement('div');
-                    timeDiv.className = 'hourly-time';
-                    timeDiv.textContent = time;
-                    
-                    const iconDiv = document.createElement('div');
-                    iconDiv.className = 'hourly-icon';
-                    iconDiv.appendChild(weatherIcon.cloneNode(true));
-                    
-                    hourlyItem.appendChild(timeDiv);
-                    hourlyItem.appendChild(iconDiv);
-                    hourlyItem.innerHTML += `
+                    hourlyItem.innerHTML = `
+                        <div class="hourly-time">${time}</div>
+                        <div class="hourly-icon">${icon}</div>
                         <div class="hourly-temp">${temp}°</div>
                         <div class="hourly-desc">${item.weather[0].description}</div>
                     `;
@@ -3436,123 +2676,87 @@
                         delay: index * 0.08,
                         opacity: 1,
                         x: 0,
-                        ease: "power2.out",
-                        onComplete: () => {
-                            gsap.to(hourlyItem, {
-                                duration: 2,
-                                y: -5,
-                                repeat: -1,
-                                yoyo: true,
-                                ease: "sine.inOut"
-                            });
-                        }
+                        ease: "power2.out"
                     });
                 });
             }
             
-            // ========== LOCATION DETECTION ==========
-            async getUserLocation() {
-                return new Promise((resolve) => {
-                    if (!navigator.geolocation) {
-                        this.showLocationDetector('Geolocation not supported. Using default city.');
-                        setTimeout(() => {
-                            this.getWeather('Jakarta');
-                            resolve();
-                        }, 1500);
-                        return;
-                    }
+            // ========== BACKGROUND EFFECTS ==========
+            createParticleSystem() {
+                const colors = ['#667eea', '#764ba2', '#f5576c', '#4facfe', '#43e97b'];
+                
+                for (let i = 0; i < 15; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
                     
-                    const timeoutId = setTimeout(() => {
-                        this.showLocationDetector('Location detection timeout. Using default city.');
-                        setTimeout(() => {
-                            this.getWeather('Jakarta');
-                            resolve();
-                        }, 1500);
-                    }, 10000);
+                    const size = Math.random() * 4 + 2;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
                     
-                    navigator.geolocation.getCurrentPosition(
-                        async (position) => {
-                            clearTimeout(timeoutId);
-                            
-                            const { latitude, longitude } = position.coords;
-                            
-                            this.storeCoords(latitude, longitude);
-                            this.storeLocationType('gps');
-                            
-                            this.showLocationDetector('Location found! Loading weather...');
-                            await this.getWeatherByCoords(latitude, longitude);
-                            resolve();
-                        },
-                        async (error) => {
-                            clearTimeout(timeoutId);
-                            
-                            let errorMessage = 'Cannot detect location. ';
-                            if (error.code === error.PERMISSION_DENIED) {
-                                errorMessage += 'Permission denied. ';
-                            } else if (error.code === error.TIMEOUT) {
-                                errorMessage += 'Request timeout. ';
-                            }
-                            
-                            errorMessage += 'Using default city.';
-                            this.showLocationDetector(errorMessage);
-                            
-                            setTimeout(() => {
-                                this.getWeather('Jakarta');
-                                resolve();
-                            }, 2000);
-                        },
-                        {
-                            enableHighAccuracy: true,
-                            timeout: 8000,
-                            maximumAge: 600000
-                        }
-                    );
-                });
+                    particle.style.cssText = `
+                        position: fixed;
+                        width: ${size}px;
+                        height: ${size}px;
+                        background: ${color};
+                        border-radius: 50%;
+                        pointer-events: none;
+                        top: ${Math.random() * 100}vh;
+                        left: ${Math.random() * 100}vw;
+                        z-index: -1;
+                        opacity: ${Math.random() * 0.3 + 0.1};
+                        filter: blur(${Math.random() * 3}px);
+                    `;
+                    
+                    document.body.appendChild(particle);
+                    
+                    gsap.to(particle, {
+                        duration: Math.random() * 10 + 5,
+                        x: `+=${Math.random() * 200 - 100}`,
+                        y: `+=${Math.random() * 200 - 100}`,
+                        rotation: Math.random() * 360,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut"
+                    });
+                }
             }
             
-            // ========== AUTO REFRESH ==========
-            startAutoRefresh() {
-                if (this.refreshInterval) {
-                    clearInterval(this.refreshInterval);
-                }
+            initialAnimations() {
+                gsap.from('.header', {
+                    duration: 1.2,
+                    y: -100,
+                    opacity: 0,
+                    ease: "power4.out",
+                    delay: 0.2
+                });
                 
-                const interval = parseInt(localStorage.getItem('refresh_interval') || '5');
-                const enabled = localStorage.getItem('auto_refresh') !== 'false';
+                gsap.from('.search-section', {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: "power3.out",
+                    delay: 0.4
+                });
                 
-                if (enabled) {
-                    this.refreshInterval = setInterval(() => {
-                        if (!this.isLoading) {
-                            const locationType = this.getStoredLocationType();
-                            
-                            if (locationType === 'gps') {
-                                const coords = this.getStoredCoords();
-                                if (coords) {
-                                    this.getWeatherByCoords(coords.lat, coords.lon);
-                                }
-                            } else {
-                                const city = this.getStoredCity();
-                                if (city) {
-                                    this.getWeather(city);
-                                }
-                            }
+                gsap.utils.toArray('.current-weather, .forecast-section, .charts-section, .hourly-section').forEach(section => {
+                    ScrollTrigger.create({
+                        trigger: section,
+                        start: "top 85%",
+                        onEnter: () => {
+                            gsap.from(section, {
+                                duration: 0.8,
+                                y: 60,
+                                opacity: 0,
+                                ease: "power2.out"
+                            });
                         }
-                    }, interval * 60 * 1000);
-                }
+                    });
+                });
             }
         }
         
         // Initialize dashboard
         document.addEventListener('DOMContentLoaded', () => {
             window.weatherDashboard = new WeatherDashboard();
-            
-            // Handle window resize
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    ScrollTrigger.refresh();
-                }, 250);
-            });
         });
     </script>
 </body>
